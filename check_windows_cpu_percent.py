@@ -22,16 +22,16 @@ def client_program(param1,param2,param3,param4,param5):
         retour = client_socket.recv(1024).decode() 
         retour=float(retour)
         if  int(param4) <= int(retour) < int(param5):
-            print('WARNING : CPU usage  ',retour,'%')
+            print('WARNING : CPU usage  ',retour,'% | cpu_usage%=',retour)
             sys.exit(1)
         elif  int(param5) <= int(retour):
-            print('CRITICAL : CPU usage  ',retour,'%')
+            print('CRITICAL : CPU usage  ',retour,'% | cpu_usage%=',retour)
             sys.exit(2)    
         elif int(retour) < int(param4):
-            print('OK : CPU usage  ',retour,'%')
+            print('OK : CPU usage  ',retour,'% | cpu_usage%=',retour)
             sys.exit(1)
         else:
-            print('CRITICAL : retour ')
+            print('CRITICAL : sur le retour ')
             sys.exit(2)            
     except Exception as e:
         client_socket.close()
